@@ -56,5 +56,4 @@ class PeopleVitalCreateView(CreateView):
 
 def index(request):
     data = {"header": "Hello Django", "message": "Welcome to Python"}
-    create_form = PeopleCreateView()
-    return render(request, "index.html", {"content": create_form})
+    return render(request, "index.html", data)
