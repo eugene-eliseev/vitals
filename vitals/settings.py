@@ -25,7 +25,7 @@ SECRET_KEY = 't$br8u%3!^$by-5z3ba!&7=l@@*z%@%$zoysgc0!8&8z*ol^!k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['savkin.tecraft.ru']
+ALLOWED_HOSTS = ['savkin.tecraft.ru', '127.0.0.1']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'main',
-    'bootstrap3',
+    'bootstrap4',
     'guardian',
     'explorer',
     'allauth',
@@ -151,3 +151,5 @@ SITE_ID = 1
 
 EXPLORER_CONNECTIONS = { 'Default': 'default' }
 EXPLORER_DEFAULT_CONNECTION = 'default'
+
+LOGIN_REDIRECT_URL = '/'
