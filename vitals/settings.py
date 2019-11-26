@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 't$br8u%3!^$by-5z3ba!&7=l@@*z%@%$zoysgc0!8&8z*ol^!k'
 DEBUG = True
 
 ALLOWED_HOSTS = ['savkin.tecraft.ru', '127.0.0.1']
-
 
 # Application definition
 
@@ -56,6 +54,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.paypal',
     'allauth.socialaccount.providers.vk',
     'crispy_forms',
+    'crispy_forms.bootstrap',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +74,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,7 +90,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'vitals.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -101,7 +99,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -121,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -134,7 +130,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -149,7 +144,9 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-EXPLORER_CONNECTIONS = { 'Default': 'default' }
+EXPLORER_CONNECTIONS = {'Default': 'default'}
 EXPLORER_DEFAULT_CONNECTION = 'default'
 
 LOGIN_REDIRECT_URL = '/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

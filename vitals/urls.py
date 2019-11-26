@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from main import views
-import allauth
 
 urlpatterns = [
     path('', views.index, name='home'),
-    url(r'^people/add$', views.PeopleCreateView.as_view()),
-    url(r'^people/update$', views.PeopleUpdateView.as_view()),
+    url(r'^people/add/$', views.PeopleCreateView.as_view(), name='people_add'),
+    url(r'^people/(?P<pk>\d+)/$', views.PeopleUpdateView.as_view(), name='people_update'),
+    url(r'^people/(?P<pk>\d+)/delete/$', views.PeopleDeleteView.as_view(), name='people_delete'),
     url(r'^race/add$', views.RaceCreateView.as_view()),
     url(r'^vital/add$', views.VitalCreateView.as_view()),
     url(r'^seller/add$', views.SellerCreateView.as_view()),
