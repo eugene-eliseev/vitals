@@ -21,6 +21,13 @@ import allauth
 
 urlpatterns = [
     path('', views.index, name='home'),
+    url(r'^people/add$', views.PeopleCreateView.as_view()),
+    url(r'^people/update$', views.PeopleUpdateView.as_view()),
+    url(r'^race/add$', views.RaceCreateView.as_view()),
+    url(r'^vital/add$', views.VitalCreateView.as_view()),
+    url(r'^seller/add$', views.SellerCreateView.as_view()),
+    url(r'^buyer/add$', views.BuyerCreateView.as_view()),
+    url(r'^pv/add$', views.PeopleVitalCreateView.as_view()),
     path('admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^explorer/', include('explorer.urls')),

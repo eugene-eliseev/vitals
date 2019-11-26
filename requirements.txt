@@ -1,0 +1,7 @@
+django
+django-guardian
+django-bootstrap4
+django-sql-explorer
+django-allauth
+django-crispy-forms
+django-allauth
