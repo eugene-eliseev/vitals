@@ -1,6 +1,6 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit, Button
 from .models import People, Race, PeopleVital, Vital, Buyer, Seller
 
 
@@ -14,7 +14,10 @@ class PeopleForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Save people'))
+        self.helper.add_input(Submit('submit', 'Save'))
+        self.helper.add_input(
+            Button('delete', 'Delete', onclick='window.location.href="{}"'.format('delete'), css_class='btn btn-danger')
+        )
 
 
 class RaceForm(forms.ModelForm):

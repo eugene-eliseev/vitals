@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
+from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView
+from .generate_data import generate_data
 from .models import People, Vital, Race, PeopleVital, Seller, Buyer
 from .forms import PeopleForm, RaceForm, VitalForm, PeopleVitalForm, SellerForm, BuyerForm
 
@@ -9,14 +10,18 @@ class PeopleCreateView(CreateView):
     model = People
     form_class = PeopleForm
     template_name = 'people_form.html'
-    success_url = '/success/'
 
 
 class PeopleUpdateView(UpdateView):
     model = People
     form_class = PeopleForm
     template_name = 'people_form.html'
-    success_url = '/success/'
+
+
+class PeopleDeleteView(DeleteView):
+    model = People
+    template_name = 'people_form.html'
+    success_url = reverse_lazy('/people-list')
 
 
 class VitalCreateView(CreateView):
@@ -55,5 +60,5 @@ class PeopleVitalCreateView(CreateView):
 
 
 def index(request):
-    data = {"header": "Hello Django", "message": "Welcome to Python"}
-    return render(request, "index.html", data)
+    generate_data()
+    return render(request, "index.html")

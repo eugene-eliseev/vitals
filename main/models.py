@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Race(models.Model):
@@ -30,6 +31,9 @@ class People(models.Model):
     seller = models.ForeignKey(Seller, on_delete=models.PROTECT)
     buyer = models.ForeignKey(Buyer, on_delete=models.PROTECT, default=None)
     race = models.ForeignKey(Race, on_delete=models.PROTECT)
+
+    def get_absolute_url(self):
+        return reverse('people', kwargs={'pk': self.pk})
 
 
 class Vital(models.Model):
