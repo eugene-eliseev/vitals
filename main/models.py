@@ -16,11 +16,15 @@ class Seller(models.Model):
     phone = models.IntegerField()
 
 
+class Sex(models.Model):
+    name = models.CharField(max_length=1, primary_key=True)
+
+
 class People(models.Model):
     first_name = models.CharField(max_length=32)
     second_name = models.CharField(max_length=32)
     reason = models.CharField(max_length=50)
-    sex = models.IntegerField()
+    sex = models.ForeignKey(Sex, on_delete=models.PROTECT)
     is_alive = models.BooleanField()
     health_problems = models.CharField(max_length=50, default='')
     birthday = models.DateField()
