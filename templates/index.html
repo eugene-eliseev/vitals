@@ -20,20 +20,29 @@
    }
     .topnav
     {
+        font-family: "Girassol";
         overflow: hidden;
         background-color: black;
+
     }
      .topnav a
-     { float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
+     {  float: left;
+         color: darkred;
+         text-align: center;
+         padding: 14px 16px;
         text-decoration: none;
-        font-size: 17px;
+        font-size: 30px;
      }
+    .topnav a:hover
     {
-        overflow: hidden;
+        background-color: darkred;
+        color: white;
+    }
+
+    .topnav a.active
+    {
         background-color: black;
+        color: darkred;
     }
     h1
    {
@@ -66,7 +75,7 @@
 <body>
 {% bootstrap_messages %}
 {% load socialaccount %}
-<div class="topnav">  <a class="active" href="#home">Список рабов</a>  <a href="#news">Список органов</a>   </div>
+<div class="topnav"> <a href="/">Home</a>   <a  href="/people_list/">Slaves</a>  <a href="/">Vitals</a>   </div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-11">

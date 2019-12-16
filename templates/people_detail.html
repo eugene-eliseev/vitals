@@ -4,11 +4,12 @@
     <h2>People info</h2>
 
 {% if people %}
+    <h3>
+        First Name: {{ people.first_name }}
+        Last Name: {{ people.second_name }}
+    </h3>
 <p>
-    Тута короче надо вывести инфо о чудике по красоте<hr>
-    First Name: {{ people.first_name }}<br>
-    Last Name: {{ people.second_name }}<br>
-и так далее, имена полей брать из модели (models.py)<br>
+  и так далее, имена полей брать из модели (models.py)<br>
     Серёга, не забудь :D</p>
     {% else %}
       <p>There are no peoples in the database with this ID.</p>
