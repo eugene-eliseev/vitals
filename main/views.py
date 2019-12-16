@@ -62,3 +62,8 @@ class PeopleVitalCreateView(CreateView):
 def index(request):
     generate_data()
     return render(request, "index.html")
+
+
+def success(request):
+    generate_data()
+    return render(request, "success.html")
