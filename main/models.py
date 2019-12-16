@@ -33,7 +33,7 @@ class People(models.Model):
     race = models.ForeignKey(Race, on_delete=models.PROTECT)
 
     def get_absolute_url(self):
-        return reverse('people', kwargs={'pk': self.pk})
+        return "/people_info/{}".format(self.pk)
 
 
 class Vital(models.Model):

@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^people/add/$', views.PeopleCreateView.as_view(), name='people_add'),
     url(r'^people/(?P<pk>\d+)/$', views.PeopleUpdateView.as_view(), name='people_update'),
     url(r'^people/(?P<pk>\d+)/delete/$', views.PeopleDeleteView.as_view(), name='people_delete'),
+    url(r'^people_list/$', views.PeopleList.as_view(), name='people_list'),
+    url(r'^people_info/(?P<pk>\d+)/$', views.PeopleDetail.as_view(), name='people_detail'),
     url(r'^race/add$', views.RaceCreateView.as_view()),
     url(r'^vital/add$', views.VitalCreateView.as_view()),
     url(r'^seller/add$', views.SellerCreateView.as_view()),
