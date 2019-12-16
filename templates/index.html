@@ -8,15 +8,72 @@
 
     {% bootstrap_css %}
     {% bootstrap_javascript %}
+
+    <style>
+       @import url('https://fonts.googleapis.com/css?family=Girassol&display=swap');
+       @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap');
+
+    body
+   {
+       background-color: black; /* Цвет фона веб-страницы */
+
+   }
+    .topnav
+    {
+        overflow: hidden;
+        background-color: black;
+    }
+     .topnav a
+     { float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+     }
+    {
+        overflow: hidden;
+        background-color: black;
+    }
+    h1
+   {
+       font-family: "Girassol";
+       text-align: center;
+       font-size: 180px;
+
+
+   }
+   h2
+   {
+       font-family: "Shadows Into Light";
+       text-align: center;
+       font-size: 50px;
+       color: darkred;
+
+
+   }
+   p
+   {
+       color:darkred;
+       font-family:"Tempus Sans ITC";
+       text-align: center;
+       font-size: 50px;
+   }
+
+  </style>
+
 </head>
 <body>
 {% bootstrap_messages %}
 {% load socialaccount %}
+<div class="topnav">  <a class="active" href="#home">Список рабов</a>  <a href="#news">Список органов</a>   </div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-8">
-            <h1 class="mt-2">Django People</h1>
+        <div class="col-11">
+            <h1 class="mt-2">Satan Market</h1>
+            <h2 class="mx-0">Buy your own slave. </br> Or sell the one. </h2>
             <hr class="mt-0 mb-4">
+            <p> <img src="https://phoneky.co.uk/thumbs/screensavers/down/cartoon-anime/satan_887sv5pn.gif">  </p>
             {% block content %}
             {% endblock %}
         </div>
