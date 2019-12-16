@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h2>People List</h2>
+
+    Список сделай по красоте, может доп инфу выводить (кроме нейма), доступные поля объкта мжно глянуть в модели (models.py)
+
+    {% if people_list %}
+    <ul>
+
+      {% for data in people_list %}
+      <li>
+        <a href="{{ data.get_absolute_url }}">{{ data.pk }}</a> ({{ data.first_name }} {{ data.second_name }})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no people in the database.</p>
+    {% endif %}
+{% endblock %}

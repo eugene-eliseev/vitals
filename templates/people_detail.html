@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h2>People info</h2>
+
+{% if people %}
+<p>
+    Тута короче надо вывести инфо о чудике по красоте<hr>
+    First Name: {{ people.first_name }}<br>
+    Last Name: {{ people.second_name }}<br>
+и так далее, имена полей брать из модели (models.py)<br>
+    Серёга, не забудь :D</p>
+    {% else %}
+      <p>There are no peoples in the database with this ID.</p>
+    {% endif %}
+<a href="/people_list">Вернуться к списку</a>
+<a href="/people_list">Вернуться к списку</a>
+{% endblock %}
