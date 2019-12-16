@@ -61,12 +61,12 @@ class PeopleVitalCreateView(CreateView):
 
 def index(request):
     generate_data()
-    return render(request, "index.html")
+    return render(request, "index_content.html")
 
 
 def success(request):
-    generate_data()
     return render(request, "success.html")
+
 
 class PeopleList(ListView):
     model = People
