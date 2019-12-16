@@ -1,20 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>People List</h2>
+    <h2>People List </br> </h2>
 
 
 
     {% if people_list %}
-    <ul>
 
+<table border="1" width="50%" cellpadding="5" align="center" bordercolor="black">
+<tr> <th>№</th> <th>Имя Фамилия</th> <th>Дата рождения</th> <th>Цена</th> </tr>
       {% for data in people_list %}
-      <li>
-        <a href="{{ data.get_absolute_url }}">{{ data.pk }}</a> ({{ data.first_name }} {{ data.second_name }})
-      </li>
-      {% endfor %}
 
-    </ul>
+            <tr> <th><a href="{{ data.get_absolute_url }}">{{ data.pk }}</a> </th> <th>{{ data.first_name }} {{ data.second_name }}</th> <th>{{ data.birthday }}</th> <th>{{ data.buy_price }}</th> </tr>
+
+      {% endfor %}
+ </table>
+
     {% else %}
       <p>There are no people in the database. </br> <img src="https://media3.giphy.com/media/H7xRjGhc1PnIuAnHWh/source.gif" width="30%"; height="30%"> </p>
     {% endif %}
