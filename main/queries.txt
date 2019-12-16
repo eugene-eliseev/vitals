@@ -1,0 +1,18 @@
+1.
+
+SELECT a.id, a.first_name, a.second_name FROM main_people a
+WHERE sell_date > '2015-01-01' AND sell_date < '2018-01-01' AND 0 <
+(SELECT COUNT(*) FROM main_peoplevital WHERE people_id = a.id) GROUP BY a.id;
+
+2.
+
+
+
+3.
+
+SELECT a.name, a.phone FROM main_seller a
+WHERE
+(SELECT b.id FROM main_people b WHERE b.seller_id = a.name AND 0 < (SELECT COUNT(*) FROM main_peoplevital WHERE people_id = b.id) GROUP BY b.id) GROUP BY a.name;
+
+4.
+
