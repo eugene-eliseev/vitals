@@ -17,17 +17,19 @@
     body
    {
        background-color: black; /* Цвет фона веб-страницы */
-       color: white
+       color: white;
+       /* text-align: center; */
    }
     .topnav
     {
         font-family: "Girassol";
         overflow: hidden;
         background-color: black;
+        text-align:center;
 
     }
      .topnav a
-     {  float: left;
+     {
          color: darkred;
          text-align: center;
          padding: 14px 16px;
@@ -88,6 +90,10 @@
       color:Grey ;
       font-size: 30px;
    }
+   .center
+   {
+        text-align:center;
+   }
 
   </style>
 
@@ -95,7 +101,23 @@
 <body>
 {% bootstrap_messages %}
 {% load socialaccount %}
-<div class="topnav"> <a href="/">Home</a>   <a  href="/people_list/">Slaves</a>  <a href="/">Vitals</a>   </div>
+<div class="topnav">
+    <a href="/">Home</a>
+    <a href="/people_list/">Slaves</a>
+    <a href="/vitals_list/">Vitals</a>
+    <a href="/pv_list/">PeopleVitals</a>
+    <a href="/races_list/">Races</a>
+    <a href="/sellers_list/">Sellers</a>
+    <a href="/buyers_list/">Buyers</a>
+    <a href="/admin/">Admin</a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'account_email' %}">Change E-mail</a>
+    <a href="{% url 'account_logout' %}">Sign Out</a>
+    {% else %}
+    <a href="{% url 'account_login' %}">Sign In</a>
+    <a href="{% url 'account_signup' %}">Sign Up</a>
+    {% endif %}
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-11">

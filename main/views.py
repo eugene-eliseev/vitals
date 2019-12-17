@@ -20,8 +20,8 @@ class PeopleUpdateView(UpdateView):
 
 class PeopleDeleteView(DeleteView):
     model = People
-    template_name = 'people_form.html'
-    success_url = reverse_lazy('/people-list')
+    template_name = 'delete.html'
+    success_url = '/people-list'
 
 
 class VitalCreateView(CreateView):

@@ -7,8 +7,7 @@ from .models import People, Race, PeopleVital, Vital, Buyer, Seller
 class PeopleForm(forms.ModelForm):
     class Meta:
         model = People
-        fields = ('first_name', 'second_name', 'reason', 'sex', 'is_alive', 'health_problems', 'birthday', 'sell_price',
-                  'sell_date', 'seller', 'buyer', 'race')
+        fields = [f.name for f in People._meta.fields]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -23,7 +22,7 @@ class PeopleForm(forms.ModelForm):
 class RaceForm(forms.ModelForm):
     class Meta:
         model = Race
-        fields = ('name',)
+        fields = [f.name for f in Race._meta.fields]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -35,7 +34,7 @@ class RaceForm(forms.ModelForm):
 class BuyerForm(forms.ModelForm):
     class Meta:
         model = Buyer
-        fields = ('name', 'phone')
+        fields = [f.name for f in Buyer._meta.fields]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -47,7 +46,7 @@ class BuyerForm(forms.ModelForm):
 class SellerForm(forms.ModelForm):
     class Meta:
         model = Seller
-        fields = ('name', 'phone')
+        fields = [f.name for f in Seller._meta.fields]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -59,7 +58,7 @@ class SellerForm(forms.ModelForm):
 class VitalForm(forms.ModelForm):
     class Meta:
         model = Vital
-        fields = ('name',)
+        fields = [f.name for f in Vital._meta.fields]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -71,7 +70,7 @@ class VitalForm(forms.ModelForm):
 class PeopleVitalForm(forms.ModelForm):
     class Meta:
         model = PeopleVital
-        fields = ('vital', 'people', 'condition', 'price', 'buyer')
+        fields = [f.name for f in PeopleVital._meta.fields]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

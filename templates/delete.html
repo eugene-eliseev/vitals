@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="center">
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete<br>{{ object }}?</p>
+    <input type="submit" class="btn btn-outline-danger btn-lg" value="YES! AVE SATAN!"/>
+    <input type="button" class="btn btn-outline-danger btn-lg" onclick='window.location.href="/"' value="No, no, NOOOO!"/>
+</form>
+</div>
+{% endblock %}
