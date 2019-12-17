@@ -5,15 +5,24 @@ from django.urls import reverse
 class Race(models.Model):
     name = models.CharField(max_length=32, primary_key=True)
 
+    def get_absolute_url(self):
+        return "/race/{}/detail".format(self.pk)
+
 
 class Buyer(models.Model):
     name = models.CharField(max_length=32, primary_key=True)
     phone = models.IntegerField()
 
+    def get_absolute_url(self):
+        return "/seller/{}/detail".format(self.pk)
+
 
 class Seller(models.Model):
     name = models.CharField(max_length=32, primary_key=True)
     phone = models.IntegerField()
+
+    def get_absolute_url(self):
+        return "/buyer/{}/detail".format(self.pk)
 
 
 class Sex(models.Model):
@@ -37,11 +46,14 @@ class People(models.Model):
     race = models.ForeignKey(Race, on_delete=models.PROTECT)
 
     def get_absolute_url(self):
-        return "/people_info/{}".format(self.pk)
+        return "/people/{}/detail".format(self.pk)
 
 
 class Vital(models.Model):
     name = models.CharField(max_length=32, primary_key=True)
+
+    def get_absolute_url(self):
+        return "/vital/{}/detail".format(self.pk)
 
 
 class PeopleVital(models.Model):
@@ -50,3 +62,6 @@ class PeopleVital(models.Model):
     price = models.IntegerField()
     condition = models.IntegerField()
     buyer = models.ForeignKey(Buyer, on_delete=models.PROTECT, default=None)
+
+    def get_absolute_url(self):
+        return "/pv/{}/detail".format(self.pk)
