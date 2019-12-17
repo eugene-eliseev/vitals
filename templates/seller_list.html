@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Sellers List </br> </h2>
+
+
+
+    {% if seller_list %}
+
+<table border="1" width="50%" cellpadding="5" align="center" bordercolor="black">
+<tr> <th>Имя</th> <th>Телефон</th> </tr>
+      {% for data in seller_list %}
+
+            <tr> <th><a href="{{ data.get_absolute_url }}">{{ data.pk }}</a> </th> <th>{{ data.phone }}</th> </tr>
+
+      {% endfor %}
+ </table>
+
+    {% else %}
+      <p>There are no sellers in the database. </br> <img src="https://media3.giphy.com/media/H7xRjGhc1PnIuAnHWh/source.gif" width="30%"; height="30%"> </p>
+    {% endif %}
+{% endblock %}
