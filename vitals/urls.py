@@ -76,7 +76,10 @@ for model_name, model_actions in views_classes.items():
         actions = [model_name, action]
         success_url = '/'.join([model_name, "list"])
         if action != "list":
-            actions.insert(1, "(?P<pk>\d+)")
+            if model_name in ["buyer", "seller"]:
+                actions.insert(1, "(?P<pk>[^\\\\]+)")
+            else:
+                actions.insert(1, "(?P<pk>\d+)")
         actions_url = '/'.join(actions)
         urlpatterns.append(url(
             r'^{}/$'.format(actions_url),
