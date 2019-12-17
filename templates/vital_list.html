@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Vital List </br> </h2>
+
+
+
+    {% if vital_list %}
+
+<table border="1" width="50%" cellpadding="5" align="center" bordercolor="black">
+      {% for data in vital_list %}
+
+            <tr> <th>{{ data.pk }}</th> </tr>
+
+      {% endfor %}
+ </table>
+
+    {% else %}
+      <p>There are no vitals in the database. </br> <img src="https://media3.giphy.com/media/H7xRjGhc1PnIuAnHWh/source.gif" width="30%"; height="30%"> </p>
+    {% endif %}
+{% endblock %}
