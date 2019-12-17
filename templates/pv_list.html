@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>PeopleVitals List </br> </h2>
+
+
+
+    {% if peoplevital_list %}
+
+<table border="1" width="50%" cellpadding="5" align="center" bordercolor="black">
+<tr> <th>№</th> <th>Человек</th> <th>Орган</th> <th>Цена</th> </tr>
+      {% for data in peoplevital_list %}
+
+            <tr> <th><a href="{{ data.get_absolute_url }}">{{ data.pk }}</a> </th> <th>{{ data.people.first_name }} {{ data.people.second_name }}</th> <th>{{ data.vital.name }}</th> <th>{{ data.price }}</th> </tr>
+
+      {% endfor %}
+ </table>
+
+    {% else %}
+      <p>There are no people vitals in the database. </br> <img src="https://media3.giphy.com/media/H7xRjGhc1PnIuAnHWh/source.gif" width="30%"; height="30%"> </p>
+    {% endif %}
+{% endblock %}

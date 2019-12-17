@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>PeopleVital info</h2>
+
+{% if peoplevital %}
+    <h3>
+        {{ peoplevital.vital.name }} -
+        {{ peoplevital.people.first_name }} {{ peoplevital.people.second_name }}
+    </h3>
+    <span class="grey"> <b>Название органа:</b> </span> <span class="text">{{ peoplevital.vital.name }} </span> </br>
+    <span class="grey"> <b>Человек:</b></span> <a href="{{ peoplevital.people.get_absolute_url }}"><span class="text"> {{ peoplevital.people.first_name }} {{ peoplevital.people.second_name }} </span></a> </br>
+    <span class="grey"> <b>Цена:</b></span> <span class="text"> {{ peoplevital.price }} </span> </br>
+    <span class="grey"> <b>Состояние:</b></span> <span class="text"> {{ peoplevital.condition }} % </span> </br>
+    <span class="grey"> <b>Покупатель:</b></span> <span class="text"> {{ peoplevital.buyer.name }} </span> </br>
+
+    {% else %}
+      <p>There are no peoplevitals in the database with this ID.</p>
+    {% endif %}
+<p class="backb">
+    <a href="/pv/list"><button type="button" class="btn btn-outline-light">Back to list</button></a>
+    <a href="/pv/{{ peoplevital.id }}/update"><button type="button" class="btn btn-outline-light">Edit</button></a>
+</p>
+{% endblock %}
