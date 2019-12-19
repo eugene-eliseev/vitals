@@ -6,7 +6,13 @@ WHERE sell_date > '2015-01-01' AND sell_date < '2018-01-01' AND 0 <
 
 2.
 
-
+SELECT SUM(price) as sum, race FROM (
+  SELECT p.buy_price as price, p.race_id as race FROM main_people p
+  UNION ALL
+  SELECT p.first_payment as price, p.race_id as race FROM main_people p
+  UNION ALL
+  SELECT pv.price as price, p.race_id as race FROM main_peoplevital pv INNER JOIN main_people p ON p.id = pv.people_id
+) GROUP BY race ORDER BY sum DESC
 
 3.
 
